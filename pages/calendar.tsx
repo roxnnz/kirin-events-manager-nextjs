@@ -1,5 +1,6 @@
 import Calendar from '../server/lib/calendar';
 import { useState } from 'react';
+import Link from 'next/link';
 const week = ['Sunday', 'Monday', 'Tuesday', 'Wenesday', 'Thursday', 'Friday', 'Saturday'];
 const calendar = new Calendar(new Date().toISOString());
 
@@ -47,14 +48,16 @@ const CalendarView = () => {
         {getCurrentMonthCalendar().map((d: any, k: number) => {
           return (
             <span key={k}>
-              <button
-                style={{ width: 90 }}
-                disabled={!d.currentMonth}
-                type="button"
-                className="btn btn-outline-secondary"
-              >
-                {getDateByDateString(d.date)} <span className="badge badge-light">10am</span>
-              </button>
+              <Link href={`/event/info?date=${d.date}`}>
+                <button
+                  style={{ width: 90 }}
+                  disabled={!d.currentMonth}
+                  type="button"
+                  className="btn btn-outline-secondary"
+                >
+                  {getDateByDateString(d.date)} <span className="badge badge-light">10am</span>
+                </button>
+              </Link>
               {(k + 1) % 7 == 0 ? <br /> : null}
             </span>
           );
