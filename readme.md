@@ -1,6 +1,6 @@
 # Events Management App
 
-This is a open source React SSR application for managing Kirin community events.
+This is a open source SSR Web project for helping managing Kirin community events. This project is build using ReactJS, Hook API, NextJS and Bootstrap UI.
 
 ## Requirement
 
